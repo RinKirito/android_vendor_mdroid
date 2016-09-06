@@ -234,6 +234,15 @@ PRODUCT_GENERIC_PROPERTIES += \
 PRODUCT_GENERIC_PROPERTIES += \
     ro.storage_manager.enabled=true
 
+# Needs for MTP Dirty Hack
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    persist.service.adb.enable=1
+
 DEVICE_PACKAGE_OVERLAYS += vendor/mdroid/overlay/common
 
 # Versioning
@@ -248,5 +257,5 @@ include vendor/mdroid/config/ota.mk
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-google.xml
-    
+
 $(call prepend-product-if-exists, vendor/extra/product.mk)
