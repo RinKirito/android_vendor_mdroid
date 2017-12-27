@@ -20,16 +20,15 @@ type Product_variables struct {
 		Cflags []string
 	}
 
-	Qcom_bsp_legacy struct {
-		Cflags []string
-	}
-
 	Use_legacy_rescaling struct {
 		Cflags []string
 	}
 
 	Uses_generic_camera_parameter_library struct {
 		Srcs []string
+	}
+	Uses_qcom_bsp_legacy struct {
+		Cppflags []string
 	}
 }
 
@@ -44,6 +43,6 @@ type ProductVariables struct {
 	QTIMediaPath            *string `json:",omitempty"`
 	Mtk_hardware            *bool `json:",omitempty"`
 	Cant_reallocate_omx_buffers *bool `json:",omitempty"`
-	Qcom_bsp_legacy         *bool `json:",omitempty"`
 	Use_legacy_rescaling    *bool `json:",omitempty"`
+	Uses_qcom_bsp_legacy  *bool `json:",omitempty"`
 }
