@@ -1,2 +1,2 @@
-# Inherit mini common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mini.mk)
+# Inherit mini common Elixir stuff
+$(call inherit-product, vendor/elixir/config/common_mini.mk)

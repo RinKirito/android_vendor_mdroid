@@ -1,4 +1,4 @@
-# Inherit mini common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit mini common Elixir stuff
+$(call inherit-product, vendor/elixir/config/common.mk)
 
 PRODUCT_SIZE := mini
