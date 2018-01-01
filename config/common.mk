@@ -102,7 +102,6 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    AudioFX \
     Eleven \
     ExactCalculator \
     Chromium \
