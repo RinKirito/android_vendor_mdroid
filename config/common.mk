@@ -1,4 +1,5 @@
 PRODUCT_BRAND ?= ElixirOS
+ELIXIR_BUILD := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -90,6 +91,13 @@ PRODUCT_COPY_FILES += \
     vendor/elixir/prebuilt/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Optional packages
 PRODUCT_PACKAGES += \
     Basic \
@@ -142,12 +150,12 @@ PRODUCT_PACKAGES += \
     zip
 
 # Custom off-mode charger
-ifneq ($(WITH_LINEAGE_CHARGER),false)
+ifneq ($(WITH_CM_CHARGER),false)
 PRODUCT_PACKAGES += \
     charger_res_images \
-    lineage_charger_res_images \
+    cm_charger_res_images \
     font_log.png \
-    libhealthd.lineage
+    libhealthd.cm
 endif
 
 # ExFAT support
