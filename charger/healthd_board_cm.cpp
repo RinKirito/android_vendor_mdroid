@@ -33,10 +33,9 @@
 #include <cutils/properties.h>
 
 #include <pthread.h>
-#include <linux/rtc.h>
-#include <linux/time.h>
-#include <sys/epoll.h>
+#include <linux/android_alarm.h>
 #include <sys/timerfd.h>
+#include <linux/rtc.h>
 
 #include "healthd/healthd.h"
 #include "minui/minui.h"
@@ -107,6 +106,12 @@ enum alarm_time_type {
     RTC_TIME,
 };
 
+/*
+ * shouldn't be changed after
+ * reading from alarm register
+ */
+static time_t alm_secs;
+
 static int alarm_get_time(enum alarm_time_type time_type,
                           time_t *secs)
 {
@@ -155,88 +160,104 @@ err:
     return -1;
 }
 
-static void alarm_reboot(void)
+#define ERR_SECS 2
+static int alarm_is_alm_expired()
 {
-    LOGI("alarm time is up, reboot the phone!\n");
-    syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2,
-            LINUX_REBOOT_CMD_RESTART2, "rtc");
+    int rc;
+    time_t rtc_secs;
+
+    rc = alarm_get_time(RTC_TIME, &rtc_secs);
+    if (rc < 0)
+        return 0;
+
+    return (alm_secs >= rtc_secs - ERR_SECS &&
+            alm_secs <= rtc_secs + ERR_SECS) ? 1 : 0;
+}
+
+static int timerfd_set_reboot_time_and_wait(time_t secs)
+{
+    int fd;
+    int ret = -1;
+    fd = timerfd_create(CLOCK_REALTIME_ALARM, 0);
+    if (fd < 0) {
+        LOGE("Can't open timerfd alarm node\n");
+        goto err_return;
+    }
+
+    struct itimerspec spec;
+    memset(&spec, 0, sizeof(spec));
+    spec.it_value.tv_sec = secs;
+
+    if (timerfd_settime(fd, 0 /* relative */, &spec, NULL)) {
+        LOGE("Can't set timerfd alarm\n");
+        goto err_close;
+    }
+
+    uint64_t unused;
+    if (read(fd, &unused, sizeof(unused)) < 0) {
+       LOGE("Wait alarm error\n");
+       goto err_close;
+    }
+
+    ret = 0;
+err_close:
+    close(fd);
+err_return:
+    return ret;
 }
 
 static int alarm_set_reboot_time_and_wait(time_t secs)
 {
-    int rc, epollfd, nevents;
-    int fd = 0;
+    int rc, fd;
     struct timespec ts;
-    epoll_event event, events[1];
-    struct itimerspec itval;
 
-    epollfd = epoll_create(1);
-    if (epollfd < 0) {
-        LOGE("epoll_create failed\n");
-        goto err;
-    }
-
-    fd = timerfd_create(CLOCK_REALTIME_ALARM, 0);
+    fd = open("/dev/alarm", O_RDWR);
     if (fd < 0) {
-        LOGE("timerfd_create failed\n");
-        goto err;
+        LOGE("Can't open alarm devfs node, trying timerfd\n");
+        return timerfd_set_reboot_time_and_wait(secs);
     }
 
-    event.events = EPOLLIN | EPOLLWAKEUP;
-    event.data.ptr = (void *)alarm_reboot;
-    rc = epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &event);
+    /* get the elapsed realtime from boot time to now */
+    rc = ioctl(fd, ANDROID_ALARM_GET_TIME(
+                      ANDROID_ALARM_ELAPSED_REALTIME_WAKEUP), &ts);
     if (rc < 0) {
-        LOGE("epoll_ctl(EPOLL_CTL_ADD) failed \n");
+        LOGE("Unable to get elapsed realtime\n");
         goto err;
     }
 
-    itval.it_value.tv_sec = secs;
-    itval.it_value.tv_nsec = 0;
+    /* calculate the elapsed time from boot time to reboot time */
+    ts.tv_sec += secs;
+    ts.tv_nsec = 0;
 
-    itval.it_interval.tv_sec = 0;
-    itval.it_interval.tv_nsec = 0;
-
-    rc = timerfd_settime(fd, TFD_TIMER_ABSTIME, &itval, NULL);
+    rc = ioctl(fd, ANDROID_ALARM_SET(
+                      ANDROID_ALARM_ELAPSED_REALTIME_WAKEUP), &ts);
     if (rc < 0) {
-        LOGE("timerfd_settime failed %d\n",rc);
+        LOGE("Unable to set reboot time to %ld\n", secs);
         goto err;
     }
 
-    nevents = epoll_wait(epollfd, events, 1, -1);
+    do {
+        rc = ioctl(fd, ANDROID_ALARM_WAIT);
+    } while ((rc < 0 && errno == EINTR) || !alarm_is_alm_expired());
 
-    if (nevents <= 0) {
+    if (rc <= 0) {
         LOGE("Unable to wait on alarm\n");
         goto err;
-    } else {
-        (*(void (*)())events[0].data.ptr)();
     }
 
-    close(epollfd);
     close(fd);
     return 0;
 
 err:
-    if (epollfd > 0)
-        close(epollfd);
-
     if (fd >= 0)
         close(fd);
     return -1;
 }
 
-/*
- * 10s the estimated time from timestamp of alarm thread start
- * to timestamp of android boot completed.
- */
-#define TIME_DELTA 10
-
-/* seconds of 1 minute*/
-#define ONE_MINUTE 60
 static void *alarm_thread(void *)
 {
-    time_t rtc_secs, alarm_secs;
+    time_t rtc_secs, rb_secs;
     int rc;
-    timespec ts;
 
     /*
      * to support power off alarm, the time
@@ -245,38 +266,30 @@ static void *alarm_thread(void *)
      * earlier than the actual alarm time
      * set by user
      */
-    rc = alarm_get_time(ALARM_TIME, &alarm_secs);
-    if (rc < 0 || !alarm_secs)
+    rc = alarm_get_time(ALARM_TIME, &alm_secs);
+    LOGI("RTC Alarm %ld\n", alm_secs);
+    if (rc < 0 || !alm_secs)
         goto err;
 
     rc = alarm_get_time(RTC_TIME, &rtc_secs);
-    if (rc < 0 || !rtc_secs)
-        goto err;
-    LOGI("alarm time in rtc is %ld, rtc time is %ld\n", alarm_secs, rtc_secs);
-
-    if (alarm_secs <= rtc_secs) {
-        clock_gettime(CLOCK_BOOTTIME, &ts);
-
-        /*
-         * It is possible that last power off alarm time is up at this point.
-         * (alarm_secs + ONE_MINUTE) is the final alarm time to fire.
-         * (rtc_secs + ts.tv_sec + TIME_DELTA) is the estimated time of next
-         * boot completed to fire alarm.
-         * If the final alarm time is less than the estimated time of next boot
-         * completed to fire, that means it is not able to fire the last power
-         * off alarm at the right time, so just miss it.
-         */
-        if (alarm_secs + ONE_MINUTE < rtc_secs + ts.tv_sec + TIME_DELTA) {
-            LOGE("alarm is missed\n");
-            goto err;
-        }
-
-        alarm_reboot();
-    }
-
-    rc = alarm_set_reboot_time_and_wait(alarm_secs);
+    LOGI("RTC Clock %ld\n", rtc_secs);
     if (rc < 0)
         goto err;
+
+    /*
+     * calculate the reboot time after which
+     * the phone will reboot
+     */
+    rb_secs = alm_secs - rtc_secs;
+    if (rb_secs <= 0)
+        goto err;
+
+    rc = alarm_set_reboot_time_and_wait(rb_secs);
+    if (rc < 0)
+        goto err;
+
+    LOGI("Exit from power off charging, reboot the phone!\n");
+    android_reboot(ANDROID_RB_RESTART, 0, 0);
 
 err:
     LOGE("Exit from alarm thread\n");
@@ -290,10 +303,10 @@ void healthd_board_init(struct healthd_config*)
     char value[PROP_VALUE_MAX];
     int rc = 0, scale_count = 0, i;
     GRSurface **scale_frames;
-    int scale_fps;  // Not in use (charger/lineage_battery_scale doesn't have FPS text
+    int scale_fps;  // Not in use (charger/cm_battery_scale doesn't have FPS text
                     // chunk). We are using hard-coded frame.disp_time instead.
 
-    rc = res_create_multi_display_surface("charger/lineage_battery_scale",
+    rc = res_create_multi_display_surface("charger/cm_battery_scale",
             &scale_count, &scale_fps, &scale_frames);
     if (rc < 0) {
         LOGE("%s: Unable to load battery scale image", __func__);
