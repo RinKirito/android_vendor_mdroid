@@ -114,6 +114,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Chromium \
     Turbo \
+    MusicFX \
     DeskClock \
     OmniJaws \
     WallpaperPicker
