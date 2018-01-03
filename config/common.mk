@@ -266,4 +266,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.control_privapp_permissions=log
 
+# Clean up packages cache to avoid wrong strings and resources
+PRODUCT_COPY_FILES += \
+    vendor/mdroid/prebuilt/bin/clean_cache.sh:system/bin/clean_cache.sh
+
 $(call prepend-product-if-exists, vendor/extra/product.mk)
