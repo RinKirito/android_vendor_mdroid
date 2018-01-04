@@ -114,7 +114,7 @@ PRODUCT_PACKAGES += \
     Gallery2 \
     Eleven \
     ExactCalculator \
-    Chromium \
+    Substratum \
     Turbo \
     MusicFX \
     DeskClock \
