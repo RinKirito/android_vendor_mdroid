@@ -11,6 +11,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+# general properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.setupwizard.enterprise_mode=1 \
+    persist.sys.root_access=1 \
+    ro.opa.eligible_device=true
+    
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
 
@@ -193,4 +201,8 @@ include vendor/elixir/config/version.mk
 # Google sounds
 include vendor/elixir/extra/google/audio.mk
 
+# Permissions
+PRODUCT_PACKAGES += \
+    privapp-permissions-google.xml
+    
 $(call prepend-product-if-exists, vendor/extra/product.mk)
