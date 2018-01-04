@@ -110,6 +110,8 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
+    Launcher3 \
+    Gallery2 \
     Eleven \
     ExactCalculator \
     Chromium \
