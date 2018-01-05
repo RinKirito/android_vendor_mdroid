@@ -20,10 +20,6 @@ type Product_variables struct {
 		Cflags []string
 	}
 
-	Qcom_bsp_legacy struct {
-		Cflags []string
-	}
-
 	Use_legacy_rescaling struct {
 		Cflags []string
 	}
@@ -31,7 +27,6 @@ type Product_variables struct {
 	Uses_generic_camera_parameter_library struct {
 		Srcs []string
 	}
-
 	Uses_qcom_bsp_legacy struct {
 		Cppflags []string
 	}
