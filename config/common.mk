@@ -119,6 +119,7 @@ PRODUCT_PACKAGES += \
 # Custom packages
 PRODUCT_PACKAGES += \
     Launcher3 \
+    NovaLauncher \
     Gallery2 \
     Eleven \
     ExactCalculator \
