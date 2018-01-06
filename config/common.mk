@@ -165,10 +165,13 @@ PRODUCT_PACKAGES += \
     wget \
     zip
 
-# Custom off-mode charger
-ifneq ($(WITH_CM_CHARGER),false)
+# Charger
 PRODUCT_PACKAGES += \
-    charger_res_images \
+    charger_res_images
+
+# Custom off-mode charger
+ifeq ($(WITH_CM_CHARGER),true)
+PRODUCT_PACKAGES += \
     cm_charger_res_images \
     font_log.png \
     libhealthd.cm
