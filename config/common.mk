@@ -18,7 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enterprise_mode=1 \
     persist.sys.root_access=1 \
     ro.opa.eligible_device=true
-    
+
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
 
@@ -119,7 +119,7 @@ PRODUCT_PACKAGES += \
 # Custom packages
 PRODUCT_PACKAGES += \
     Launcher3 \
-    NovaLauncher \
+    Via \
     Gallery2 \
     Eleven \
     ExactCalculator \
