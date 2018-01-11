@@ -125,6 +125,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Substratum \
     Turbo \
+    Recorder \
     GoogleWallpapers \
     MusicFX \
     DeskClock \
