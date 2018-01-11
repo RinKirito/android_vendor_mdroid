@@ -125,6 +125,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Substratum \
     Turbo \
+    GoogleWallpapers \
     MusicFX \
     DeskClock \
     OmniJaws \
