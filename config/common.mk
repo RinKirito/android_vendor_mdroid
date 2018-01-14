@@ -130,6 +130,8 @@ PRODUCT_PACKAGES += \
     MusicFX \
     DeskClock \
     OmniJaws \
+    PixelLauncher \
+    ElixirWalls \
     WallpaperPicker
 
 # Exchange support
