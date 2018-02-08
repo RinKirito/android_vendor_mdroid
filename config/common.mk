@@ -222,16 +222,6 @@ PRODUCT_PACKAGES += \
     mkfs.exfat
 endif
 
-# Stagefright FFMPEG plugin
-PRODUCT_PACKAGES += \
-    libffmpeg_extractor \
-    libffmpeg_omx \
-    media_codecs_ffmpeg.xml
-
-PRODUCT_GENERIC_PROPERTIES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
-
 # Storage manager
 PRODUCT_GENERIC_PROPERTIES += \
     ro.storage_manager.enabled=true
