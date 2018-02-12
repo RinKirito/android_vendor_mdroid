@@ -14,6 +14,6 @@ PRODUCT_PACKAGES += \
 
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_GENERIC_PROPERTIES += \
     net.tethering.noprovisioning=true
 
