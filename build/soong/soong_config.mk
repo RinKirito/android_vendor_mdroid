@@ -16,4 +16,5 @@ elixir_soong:
 	echo '    "Cant_reallocate_omx_buffers":  $(if $(filter omap4,$(TARGET_BOARD_PLATFORM)),true,false),';  \
 	echo '    "Use_legacy_rescaling":  $(if $(strip $(TARGET_OMX_LEGACY_RESCALING)),true,false),';  \
 	echo '    "Uses_qcom_bsp_legacy": $(if $(filter true,$(TARGET_USES_QCOM_BSP_LEGACY)),true,false),'; \
+        echo '    "Target_shim_libs": "$(TARGET_LD_SHIM_LIBS)"'; \
 	echo '') > $(SOONG_VARIABLES_TMP)

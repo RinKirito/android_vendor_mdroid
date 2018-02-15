@@ -30,6 +30,9 @@ type Product_variables struct {
 	Uses_qcom_bsp_legacy struct {
 		Cppflags []string
 	}
+	Target_shim_libs struct {
+		Cppflags []string
+ 	}
 }
 
 type ProductVariables struct {
