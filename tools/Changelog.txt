@@ -1,0 +1,25 @@
+====================
+     02-18-2018
+====================
+
+
+project frameworks/base/
+af0731f73c6 Bring back QS panel Transparency
+664f82a30fe Merge pull request #12 from ElixirOS-eXtended/android-8.1
+1b5238797e9 SystemUI: disable statusbar time refresh when screen off
+4fdb60339fa Circle battery: add a bit of padding when Right clock is enabled
+5933ecbc495 fwb: Add left statusbar clock [1/2]
+9ff1696f33a Clock code performance improvements
+774d27d3e24 Battery: skip useless scaling calls when attaching the view
+9f332ea00f0 Text/hidden battery: don't use additional resources for no padding values
+dd95c276ba4 BatteryPercent: Allow disabling percent inside circle * increase percent's size in circle * show percent in quick sb header when circle without inside percent * fix inside percent in portrait and percent when charging. Thanks to ezio84 for suggestions
+81b9bacb0bb Battery: use SB observer to update everything and not when attaching views
+b1fde2ea7ec Portrait/hidden/txt battery: show percentage in quick sb header and keyguard
+82048d7539f Text battery style: show a tilde when charging
+30aa54dba68 Fix right padding when using hidden/text battery style
+8b6d2388e25 Circle and dot battery fixes and improvements
+c85356e55dc BatteryMeterDrawable: add hidden option
+b5f74226915 BatteryMeterDrawable: add text style
+97cf16c179f BatteryMeterDrawable: add dotted circle style
+d953dd4f082 BatteryMeterDrawable: add battery styles [1/2]
+Interrupted - terminating the pool
