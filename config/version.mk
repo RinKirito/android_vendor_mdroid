@@ -15,7 +15,7 @@ endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID="$(BUILD_ID)-$(shell whoami)@$(shell hostname)"
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_GENERIC_PROPERTIES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     ro.mdroid.version=$(MDROID_VERSION) \
     ro.modversion=MDROIDROM-$(MDROID_VERSION) \
