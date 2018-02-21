@@ -141,6 +141,7 @@ PRODUCT_PACKAGES += \
 # Berry styles
 PRODUCT_PACKAGES += \
     LineageDarkTheme \
+    ElixirSettingsDarkTheme \
     LineageBlackAccent \
     LineageBlueAccent \
     LineageBrownAccent \
