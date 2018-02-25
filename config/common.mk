@@ -212,10 +212,5 @@ include vendor/elixir/extra/google/audio.mk
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-google.xml
-
-# Use signing keys for only official builds
-ifeq ($(ELIXIR_BUILDTYPE),OFFICIAL)
-    PRODUCT_DEFAULT_DEV_CERTIFICATE := ../.keys/releasekey
-endif
-
+    
 $(call prepend-product-if-exists, vendor/extra/product.mk)
