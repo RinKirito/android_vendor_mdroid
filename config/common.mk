@@ -209,6 +209,8 @@ include vendor/elixir/config/version.mk
 # Google sounds
 include vendor/elixir/extra/google/audio.mk
 
+include vendor/elixir/config/ota.mk
+
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-google.xml
