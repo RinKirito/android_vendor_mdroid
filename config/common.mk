@@ -140,20 +140,20 @@ PRODUCT_PACKAGES += \
 
 # Berry styles
 PRODUCT_PACKAGES += \
-    LineageBlackTheme \
-    LineageDarkTheme \
+    ElixirSystemDarkTheme \
     ElixirSettingsDarkTheme \
-    LineageBlackAccent \
-    LineageBlueAccent \
-    LineageBrownAccent \
-    LineageCyanAccent \
-    LineageGreenAccent \
-    LineageOrangeAccent \
-    LineagePinkAccent \
-    LineagePixelAccent \
-    LineagePurpleAccent \
-    LineageRedAccent \
-    LineageYellowAccent
+    ElixirBlackAccent \
+    ElixirBlueAccent \
+    ElixirBrownAccent \
+    ElixirCyanAccent \
+    ElixirGreenAccent \
+    ElixirOrangeAccent \
+    ElixirPinkAccent \
+    ElixirPixelAccent \
+    ElixirPurpleAccent \
+    ElixirRedAccent \
+    ElixirWhiteAccent \
+    ElixirYellowAccent
 
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
