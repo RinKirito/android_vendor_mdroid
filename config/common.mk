@@ -4,10 +4,10 @@ MDROID_BUILD := true
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
 else
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
@@ -19,15 +19,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=1 \
     ro.opa.eligible_device=true
 
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true
 
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.selinux=1
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
-PRODUCT_GENERIC_PROPERTIES += persist.sys.dun.override=0
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.dun.override=0
 endif
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
@@ -236,7 +236,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # Storage manager
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
 
 # Needs for MTP Dirty Hack
