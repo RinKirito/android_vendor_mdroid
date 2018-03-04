@@ -58,7 +58,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/elixir/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
     vendor/elixir/prebuilt/bin/sysinit:system/bin/sysinit \
-    vendor/elixir/prebuilt/etc/init.elixir.rc:root/init.elixir.rc
+    vendor/elixir/prebuilt/etc/init.d.rc:root/init.d.rc
+
+# adb over network
+PRODUCT_COPY_FILES += \
+    vendor/elixir/prebuilt/etc/init/elixir-adb.rc:system/etc/init/elixir-adb.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
