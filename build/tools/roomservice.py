@@ -179,7 +179,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 
         print('Adding dependency: ElixirOS/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "eos", "name": "%s" % repo_name, "revision": "android-8.1"})
+            "remote": "github", "name": "ElixirOS/%s" % repo_name, "revision": "android-8.1"})
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -215,7 +215,7 @@ def fetch_dependencies(repo_path, fallback_branch = None):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
                 verify_repos.append(dependency['target_path'])
-            elif re.search("android_device_.*_.*$", dependency['repository']):
+            else:
                 verify_repos.append(dependency['target_path'])
 
         dependencies_file.close()
