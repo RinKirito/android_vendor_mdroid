@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ElixirSystemDarkTheme \
     ElixirSettingsDarkTheme \
+    ElixirDialerDarkTheme \
     ElixirBlackAccent \
     ElixirBlueAccent \
     ElixirBrownAccent \
