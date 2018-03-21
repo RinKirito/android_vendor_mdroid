@@ -144,8 +144,11 @@ PRODUCT_PACKAGES += \
 
 # Berry styles
 PRODUCT_PACKAGES += \
+    ElixirSystemBlackTheme \
     ElixirSystemDarkTheme \
+    ElixirSettingsBlackTheme \
     ElixirSettingsDarkTheme \
+    ElixirDialerBlackTheme \
     ElixirDialerDarkTheme \
     ElixirBlackAccent \
     ElixirBlueAccent \
