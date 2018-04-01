@@ -168,6 +168,10 @@ PRODUCT_PACKAGES += \
     ElixirWhiteAccent \
     ElixirYellowAccent
 
+# Fonts
+PRODUCT_PACKAGES += \
+    EOS-Fonts
+
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
     7z \
