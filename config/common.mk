@@ -149,6 +149,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ElixirSystemBlackTheme \
     ElixirSystemDarkTheme \
+    ElixirSystemUIBlackTheme \
+    ElixirSystemUIDarkTheme \
     ElixirSettingsBlackTheme \
     ElixirSettingsDarkTheme \
     ElixirDialerBlackTheme \
