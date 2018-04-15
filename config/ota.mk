@@ -14,10 +14,6 @@
 
 ifneq ($(filter elixir_mido,$(TARGET_PRODUCT)),)
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.elixir.device=$(PRODUCT_DEVICE) \
-    ro.elixir.ota.version=elixir-1.0-MW-OFFICIAL-$(PRODUCT_DEVICE)-$(shell date +"%Y%m%d")
-
 PRODUCT_PACKAGES += \
     ElixirOTA
 
