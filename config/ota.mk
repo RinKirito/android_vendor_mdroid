@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter elixir_mido elixir_land elixir_kenzo,$(TARGET_PRODUCT)),)
+ifneq ($(filter elixir_mido elixir_land,$(TARGET_PRODUCT)),)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.elixir.device=$(PRODUCT_DEVICE) \

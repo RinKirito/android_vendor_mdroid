@@ -1,3 +1,2 @@
 add_lunch_combo elixir_mido-userdebug
 add_lunch_combo elixir_land-userdebug
-add_lunch_combo elixir_kenzo-userdebug
