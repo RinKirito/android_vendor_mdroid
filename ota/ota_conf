@@ -1,8 +1,0 @@
-#Common OTA url for all devices
-ota_url=https://raw.githubusercontent.com/LakshyaTaneja/eos_ota/android-8.1/ota.xml
-release_type=Stable
-device_name=ro.elixir.device
-version_source=ro.elixir.ota.version
-version_delimiter=-
-version_position=4
-version_format=yyyyMMdd
