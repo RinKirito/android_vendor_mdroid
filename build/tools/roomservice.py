@@ -52,7 +52,7 @@ except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from ElixirOS Github (http://github.com/ElixirOS)." % device)
+    print("Device %s not found. Attempting to retrieve device repository from MiracleDROID Github (http://github.com/MiracleDROID)." % device)
 
 repositories = []
 
@@ -72,7 +72,7 @@ def add_auth(githubreq):
         githubreq.add_header("Authorization","Basic %s" % githubauth)
 
 if not depsonly:
-    githubreq = urllib.request.Request("https://api.github.com/search/repositories?q=%s+user:ElixirOS+in:name+fork:true" % device)
+    githubreq = urllib.request.Request("https://api.github.com/search/repositories?q=%s+user:MiracleDROID+in:name+fork:true" % device)
     add_auth(githubreq)
     try:
         result = json.loads(urllib.request.urlopen(githubreq).read().decode())
@@ -149,7 +149,7 @@ def is_in_manifest(projectpath):
         if localpath.get("path") == projectpath:
             return True
 
-    # ... and don't forget the ElixirOS snippet
+    # ... and don't forget the MiracleDROID snippet
     try:
         lm = ElementTree.parse(".repo/manifests/Elixir.xml")
         lm = lm.getroot()
@@ -174,12 +174,12 @@ def add_to_manifest(repositories, fallback_branch = None):
         repo_target = repository['target_path']
         print('Checking if %s is fetched from %s' % (repo_target, repo_name))
         if is_in_manifest(repo_target):
-            print('ElixirOS/%s already fetched to %s' % (repo_name, repo_target))
+            print('MiracleDROID/%s already fetched to %s' % (repo_name, repo_target))
             continue
 
-        print('Adding dependency: ElixirOS/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: MiracleDROID/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "ElixirOS/%s" % repo_name, "revision": "android-8.1"})
+            "remote": "github", "name": "MiracleDROID/%s" % repo_name, "revision": "android-8.1"})
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -297,4 +297,4 @@ else:
             print("Done")
             sys.exit()
 
-print("Repository for %s not found in ElixirOS Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print("Repository for %s not found in MiracleDROID Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
