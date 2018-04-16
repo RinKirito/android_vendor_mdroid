@@ -1,5 +1,5 @@
-# Inherit common Lineage stuff
-$(call inherit-product, vendor/elixir/config/common.mk)
+# Inherit common MDroid stuff
+$(call inherit-product, vendor/mdroid/config/common.mk)
 
 PRODUCT_SIZE := full
 

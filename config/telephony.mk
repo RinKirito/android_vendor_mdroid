@@ -1,10 +1,10 @@
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
-    vendor/elixir/prebuilt/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
+    vendor/mdroid/prebuilt/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
 
 # World APN list
 PRODUCT_COPY_FILES += \
-    vendor/elixir/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/mdroid/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Telephony packages
 PRODUCT_PACKAGES += \

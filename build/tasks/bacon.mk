@@ -16,10 +16,10 @@
 # -----------------------------------------------------------------
 # Lineage OTA update package
 
-ELIXIR_TARGET_PACKAGE := $(PRODUCT_OUT)/elixir-$(ELIXIR_VERSION).zip
+MDROID_TARGET_PACKAGE := $(PRODUCT_OUT)/mdroid-$(MDROID_VERSION).zip
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(ELIXIR_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(ELIXIR_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(ELIXIR_TARGET_PACKAGE).md5sum
-	@echo "Package Complete: $(ELIXIR_TARGET_PACKAGE)" >&2
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(MDROID_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(MDROID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(MDROID_TARGET_PACKAGE).md5sum
+	@echo "Package Complete: $(MDROID_TARGET_PACKAGE)" >&2

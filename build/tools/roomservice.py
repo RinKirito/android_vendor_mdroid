@@ -151,7 +151,7 @@ def is_in_manifest(projectpath):
 
     # ... and don't forget the MiracleDROID snippet
     try:
-        lm = ElementTree.parse(".repo/manifests/Elixir.xml")
+        lm = ElementTree.parse(".repo/manifests/MDroid.xml")
         lm = lm.getroot()
     except:
         lm = ElementTree.Element("manifest")

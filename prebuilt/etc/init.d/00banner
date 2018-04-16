@@ -2,6 +2,6 @@
 #
 # Print startup info
 #
-L="log -p i -t elixir"
+L="log -p i -t mdroid"
 
-$L "Welcome to Android `getprop ro.build.version.release` / Elixir `getprop ro.elixir.version`";
+$L "Welcome to Android `getprop ro.build.version.release` / MDroid `getprop ro.mdroid.version`";

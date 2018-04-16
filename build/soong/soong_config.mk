@@ -1,4 +1,4 @@
-elixir_soong:
+mdroid_soong:
 	$(hide) mkdir -p $(dir $@)
 	$(hide) (\
 	echo '{'; \

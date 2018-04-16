@@ -1,9 +1,9 @@
-# Inherit full common Elixir stuff
-$(call inherit-product, vendor/elixir/config/common_full.mk)
+# Inherit full common MDroid stuff
+$(call inherit-product, vendor/mdroid/config/common_full.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \
     LatinIME
 
-# Include Elixir LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/elixir/overlay/dictionaries
+# Include MDroid LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/mdroid/overlay/dictionaries

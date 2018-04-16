@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= ElixirOS
+PRODUCT_BRAND ?= MiracleDROID
 MDROID_BUILD := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -45,24 +45,24 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/elixir/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/elixir/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/elixir/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
-    vendor/elixir/prebuilt/bin/blacklist:system/addon.d/blacklist
+    vendor/mdroid/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/mdroid/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/mdroid/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
+    vendor/mdroid/prebuilt/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/elixir/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/mdroid/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/elixir/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/elixir/prebuilt/bin/sysinit:system/bin/sysinit \
-    vendor/elixir/prebuilt/etc/init.d.rc:root/init.d.rc
+    vendor/mdroid/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/mdroid/prebuilt/bin/sysinit:system/bin/sysinit \
+    vendor/mdroid/prebuilt/etc/init.d.rc:root/init.d.rc
 
 # adb over network
 PRODUCT_COPY_FILES += \
-    vendor/elixir/prebuilt/etc/init/elixir-adb.rc:system/etc/init/elixir-adb.rc
+    vendor/mdroid/prebuilt/etc/init/mdroid-adb.rc:system/etc/init/mdroid-adb.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -72,8 +72,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# Include ElixirOS audio files
-include vendor/elixir/config/elixir_audio.mk
+# Include MiracleDROID audio files
+include vendor/mdroid/config/mdroid_audio.mk
 
 # Bootanimation
 ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
@@ -86,7 +86,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/elixir/prebuilt/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/mdroid/prebuilt/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -103,7 +103,7 @@ endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
 PRODUCT_COPY_FILES += \
-    vendor/elixir/prebuilt/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+    vendor/mdroid/prebuilt/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
 # Telephony
@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
     DeskClock \
     OmniJaws \
     PixelLauncher \
-    ElixirWalls \
+    MDroidWalls \
     WallpaperPicker
 
 # Exchange support
@@ -147,30 +147,30 @@ PRODUCT_PACKAGES += \
 
 # Berry styles
 PRODUCT_PACKAGES += \
-    ElixirSystemBlackTheme \
-    ElixirSystemDarkTheme \
-    ElixirSystemUIBlackTheme \
-    ElixirSystemUIDarkTheme \
-    ElixirSettingsBlackTheme \
-    ElixirSettingsDarkTheme \
-    ElixirDialerBlackTheme \
-    ElixirDialerDarkTheme \
-    ElixirBlackAccent \
-    ElixirBlueAccent \
-    ElixirBrownAccent \
-    ElixirCyanAccent \
-    ElixirGreenAccent \
-    ElixirOrangeAccent \
-    ElixirPinkAccent \
-    ElixirPixelAccent \
-    ElixirPurpleAccent \
-    ElixirRedAccent \
-    ElixirWhiteAccent \
-    ElixirYellowAccent
+    MDroidSystemBlackTheme \
+    MDroidSystemDarkTheme \
+    MDroidSystemUIBlackTheme \
+    MDroidSystemUIDarkTheme \
+    MDroidSettingsBlackTheme \
+    MDroidSettingsDarkTheme \
+    MDroidDialerBlackTheme \
+    MDroidDialerDarkTheme \
+    MDroidBlackAccent \
+    MDroidBlueAccent \
+    MDroidBrownAccent \
+    MDroidCyanAccent \
+    MDroidGreenAccent \
+    MDroidOrangeAccent \
+    MDroidPinkAccent \
+    MDroidPixelAccent \
+    MDroidPurpleAccent \
+    MDroidrRedAccent \
+    MDroidWhiteAccent \
+    MDroidYellowAccent
 
 # Fonts
 PRODUCT_PACKAGES += \
-    EOS-Fonts
+    MDroid-Fonts
 
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
@@ -235,13 +235,13 @@ PRODUCT_GENERIC_PROPERTIES += \
 PRODUCT_GENERIC_PROPERTIES += \
     ro.storage_manager.enabled=true
 
-DEVICE_PACKAGE_OVERLAYS += vendor/elixir/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/mdroid/overlay/common
 
 # Versioning
-include vendor/elixir/config/version.mk
+include vendor/mdroid/config/version.mk
 
 # Google sounds
-include vendor/elixir/extra/google/audio.mk
+include vendor/mdroid/extra/google/audio.mk
 
 # Permissions
 PRODUCT_PACKAGES += \

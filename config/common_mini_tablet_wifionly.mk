@@ -1,5 +1,5 @@
-# Inherit mini common Elixir stuff
-$(call inherit-product, vendor/elixir/config/common_mini.mk)
+# Inherit mini common <Droid stuff
+$(call inherit-product, vendor/mdroid/config/common_mini.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \
