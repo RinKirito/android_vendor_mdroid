@@ -138,7 +138,6 @@ PRODUCT_PACKAGES += \
     DeskClock \
     OmniJaws \
     PixelLauncher \
-    MDroidWalls \
     WallpaperPicker
 
 # Exchange support
