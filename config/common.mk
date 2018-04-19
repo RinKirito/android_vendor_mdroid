@@ -242,6 +242,9 @@ include vendor/mdroid/config/version.mk
 # Google sounds
 include vendor/mdroid/extra/google/audio.mk
 
+# MDROID OTA
+include vendor/mdroid/config/ota.mk
+
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-google.xml
