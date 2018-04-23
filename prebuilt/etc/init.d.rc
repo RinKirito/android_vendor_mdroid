@@ -1,7 +1,7 @@
 on boot
     setprop ro.boot.wificountrycode US
 
-on boot
+on post-fs-data
     # Run sysinit
     start sysinit
 
