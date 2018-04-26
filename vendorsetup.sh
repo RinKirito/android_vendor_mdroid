@@ -1,2 +1,3 @@
 add_lunch_combo mdroid_mido-userdebug
 add_lunch_combo mdroid_land-userdebug
+add_lunch_combo mdroid_kenzo-userdebug
