@@ -1,7 +1,10 @@
 #!/system/bin/sh
-#
-# Print startup info
-#
-L="log -p i -t mdroid"
-
-$L "Welcome to Android `getprop ro.build.version.release` / MDroid `getprop ro.mdroid.version`";
+log -p i -t start "*********************** Welcome to MiracleDROID Project ************************"
+log -p i -t start "*     *                                      ******  ******  ******* *** ******";
+log -p i -t start "**   ** * *****    **    ****  *      ****** *     * *     * *     *  *  *     *";
+log -p i -t start "* * * * * *    *  *  *  *    * *      *      *     * *     * *     *  *  *     *";
+log -p i -t start "*  *  * * *    * *    * *      *      *****  *     * ******  *     *  *  *     *";
+log -p i -t start "*     * * *****  ****** *      *      *      *     * *   *   *     *  *  *     *";
+log -p i -t start "*     * * *   *  *    * *    * *      *      *     * *    *  *     *  *  *     *";
+log -p i -t start "*     * * *    * *    *  ****  ****** ****** ******  *     * ******* *** ******";
+log -p i -t start "********************************* Android 8.1.0 ********************************";
