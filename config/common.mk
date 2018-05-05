@@ -256,7 +256,9 @@ include vendor/mdroid/config/ota.mk
 
 # Permissions
 PRODUCT_PACKAGES += \
-    privapp-permissions-google.xml \
-    privapp-permissions-mdroid.xml
+    privapp-permissions-google.xml
+
+PRODUCT_COPY_FILES += \
+    vendor/mdroid/config/permissions/privapp-permissions-mdroid.xml:system/etc/permissions/privapp-permissions-mdroid.xml
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
