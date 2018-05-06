@@ -261,4 +261,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/mdroid/config/permissions/privapp-permissions-mdroid.xml:system/etc/permissions/privapp-permissions-mdroid.xml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=log
+
 $(call prepend-product-if-exists, vendor/extra/product.mk)
