@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter mdroid_mido mdroid_land mdroid_kenzo,$(TARGET_PRODUCT)),)
+ifneq ($(filter mdroid_mido mdroid_land mdroid_kenzo mdroid_tissot,$(TARGET_PRODUCT)),)
 
 PRODUCT_PACKAGES += \
     MiracleOTA
