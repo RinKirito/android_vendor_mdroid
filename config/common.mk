@@ -240,9 +240,6 @@ DEVICE_PACKAGE_OVERLAYS += vendor/mdroid/overlay/common
 # Versioning
 include vendor/mdroid/config/version.mk
 
-# Google sounds
-include vendor/mdroid/extra/google/audio.mk
-
 # MDROID OTA
 include vendor/mdroid/config/ota.mk
 
