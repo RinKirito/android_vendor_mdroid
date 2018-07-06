@@ -4,3 +4,5 @@ add_lunch_combo mdroid_kenzo-userdebug
 add_lunch_combo mdroid_tissot-userdebug
 add_lunch_combo mdroid_santoni-userdebug
 add_lunch_combo mdroid_potter-userdebug
+add_lunch_combo mdroid_vince-userdebug
+add_lunch_combo mdroid_wt88047-userdebug
