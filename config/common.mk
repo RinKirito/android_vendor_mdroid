@@ -158,6 +158,10 @@ PRODUCT_PACKAGES += \
     MDroidDialerDarkTheme \
     MDroidEbayBlackTheme \
     MDroidEbayDarkTheme \
+    MDroidContactsBlackTheme \
+    MDroidContactsDarkTheme \
+    MDroidFilesBlackTheme \
+    MDroidFilesDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
