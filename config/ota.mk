@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(MDROID_BUILDTYPE), Official)
+ifeq ($(MDROID_BUILDTYPE), OFFICIAL)
 ifneq ($(filter mdroid_mido mdroid_land mdroid_kenzo mdroid_tissot mdroid_santoni mdroid_potter mdroid_wt88047 mdroid_vince,$(TARGET_PRODUCT)),)
 
 PRODUCT_PACKAGES += \
