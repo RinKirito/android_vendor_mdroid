@@ -160,13 +160,17 @@ PRODUCT_PACKAGES += \
     MDroidBlueAccent \
     MDroidBrownAccent \
     MDroidCyanAccent \
+    MDroidForestAccent \
     MDroidGreenAccent \
+    MDroidGreyAccent \
     MDroidOrangeAccent \
     MDroidPinkAccent \
     MDroidPixelAccent \
     MDroidPurpleAccent \
-    MDroidrRedAccent \
+    MDroidRedAccent \
+    MDroidTealAccent \
     MDroidWhiteAccent \
+    MDroidVioletAccent \
     MDroidYellowAccent
 
 # Fonts
