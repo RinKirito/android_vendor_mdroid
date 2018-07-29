@@ -125,7 +125,8 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    Launcher3 \
+    Lawnchair \
+    Lawnfeed \
     Via \
     Gallery2 \
     Eleven \
@@ -137,7 +138,6 @@ PRODUCT_PACKAGES += \
     MusicFX \
     DeskClock \
     OmniJaws \
-    PixelLauncher \
     WallpaperPicker
 
 # Exchange support
