@@ -158,19 +158,24 @@ PRODUCT_PACKAGES += \
     MDroidEbayDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
+    MDroidBlueLightAccent \
     MDroidBrownAccent \
     MDroidCyanAccent \
-    MDroidForestAccent \
     MDroidGreenAccent \
+    MDroidGreenLightAccent \
+    MDroidLimeAccent \
     MDroidGreyAccent \
+    MDroidGreyBlueAccent \
+    MDroidAmberAccent \
     MDroidOrangeAccent \
+    MDroidOrangeDeepAccent \
     MDroidPinkAccent \
-    MDroidPixelAccent \
     MDroidPurpleAccent \
+    MDroidPurpleDeepAccent \
+    MDroidIndigoAccent \
     MDroidRedAccent \
     MDroidTealAccent \
     MDroidWhiteAccent \
-    MDroidVioletAccent \
     MDroidYellowAccent
 
 # Fonts
