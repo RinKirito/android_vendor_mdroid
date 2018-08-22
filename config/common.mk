@@ -135,7 +135,6 @@ PRODUCT_PACKAGES += \
     Eleven \
     ExactCalculator \
     Substratum \
-    Turbo \
     Recorder \
     GoogleWallpapers \
     MusicFX \
@@ -184,6 +183,11 @@ PRODUCT_PACKAGES += \
 # Fonts
 PRODUCT_PACKAGES += \
     MDroid-Fonts
+
+# Turbo
+PRODUCT_PACKAGES += \
+    Turbo \
+    turbo.xml
 
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
