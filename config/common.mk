@@ -64,6 +64,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/mdroid/prebuilt/etc/init/mdroid-adb.rc:system/etc/init/mdroid-adb.rc
 
+# i/o scheduler
+PRODUCT_COPY_FILES += \
+    vendor/mdroid/prebuilt/etc/init/mdroid-iosched.rc:system/etc/init/mdroid-iosched.rc
+
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
