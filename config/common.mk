@@ -240,10 +240,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
 
 # Needs for MTP Dirty Hack
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mtp
 
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_GENERIC_PROPERTIES := \
     ro.adb.secure=0 \
     ro.secure=0 \
     persist.service.adb.enable=1
