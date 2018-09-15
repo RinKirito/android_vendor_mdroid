@@ -13,10 +13,6 @@ endif
 
 # general properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-    ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.setupwizard.enterprise_mode=1 \
-    persist.sys.root_access=1 \
     ro.opa.eligible_device=true
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
