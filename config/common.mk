@@ -116,7 +116,8 @@ PRODUCT_BOOT_JARS += \
 # Optional packages
 PRODUCT_PACKAGES += \
     Basic \
-    LiveWallpapersPicker
+    LiveWallpapersPicker \
+    Terminal
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
