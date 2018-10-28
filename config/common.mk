@@ -238,11 +238,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Needs for MTP Dirty Hack
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.sys.usb.config=mtp
-
-PRODUCT_GENERIC_PROPERTIES := \
-    ro.adb.secure=0 \
-    ro.secure=0 \
+    persist.sys.usb.config=mtp,adb \
     persist.service.adb.enable=1
 
 DEVICE_PACKAGE_OVERLAYS += vendor/mdroid/overlay/common
