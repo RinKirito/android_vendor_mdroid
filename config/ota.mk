@@ -18,9 +18,5 @@ ifneq ($(filter mdroid_mido mdroid_land mdroid_kenzo mdroid_tissot mdroid_santon
 PRODUCT_PACKAGES += \
     MiracleOTA
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.mdroid.device=$(PRODUCT_DEVICE) \
-    ro.mdroid.ota.version=mdroid-1.0-OFFICIAL-$(PRODUCT_DEVICE)-$(shell date +"%Y%m%d")
-
 endif
 endif
