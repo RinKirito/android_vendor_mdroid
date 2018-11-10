@@ -156,6 +156,8 @@ PRODUCT_PACKAGES += \
     MDroidSystemDarkTheme \
     MDroidSystemUIBlackTheme \
     MDroidSystemUIDarkTheme \
+    MDroidNotificationBlackTheme \
+    MDroidNotificationDarkTheme \
     MDroidSettingsBlackTheme \
     MDroidSettingsDarkTheme \
     MDroidDialerBlackTheme \
