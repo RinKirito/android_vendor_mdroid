@@ -162,6 +162,8 @@ PRODUCT_PACKAGES += \
     MDroidContactsDarkTheme \
     MDroidFilesBlackTheme \
     MDroidFilesDarkTheme \
+    MDroidMessagingBlackTheme \
+    MDroidMessagingDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
