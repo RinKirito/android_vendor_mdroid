@@ -168,6 +168,8 @@ PRODUCT_PACKAGES += \
     MDroidPhoneDarkTheme \
     MDroidTelecomBlackTheme \
     MDroidTelecomDarkTheme \
+    MDroidCalculatorBlackTheme \
+    MDroidCalculatorDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
