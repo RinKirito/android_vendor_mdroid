@@ -170,6 +170,9 @@ PRODUCT_PACKAGES += \
     MDroidTelecomDarkTheme \
     MDroidCalculatorBlackTheme \
     MDroidCalculatorDarkTheme \
+    MDroidGboardBlackTheme \
+    MDroidGboardDarkTheme \
+    MDroidGboardLightTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
