@@ -173,6 +173,8 @@ PRODUCT_PACKAGES += \
     MDroidGboardBlackTheme \
     MDroidGboardDarkTheme \
     MDroidGboardLightTheme \
+    MDroidCalendarBlackTheme \
+    MDroidCalendarDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
