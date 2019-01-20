@@ -175,6 +175,8 @@ PRODUCT_PACKAGES += \
     MDroidGboardLightTheme \
     MDroidCalendarBlackTheme \
     MDroidCalendarDarkTheme \
+    MDroidGooglePackageInstallerBlackTheme \
+    MDroidGooglePackageInstallerDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
