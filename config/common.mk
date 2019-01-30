@@ -179,6 +179,8 @@ PRODUCT_PACKAGES += \
     MDroidGooglePackageInstallerDarkTheme \
     MDroidEmailBlackTheme \
     MDroidEmailDarkTheme \
+    MDroidFMRadioBlackTheme \
+    MDroidFMRadioDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
