@@ -181,6 +181,8 @@ PRODUCT_PACKAGES += \
     MDroidEmailDarkTheme \
     MDroidFMRadioBlackTheme \
     MDroidFMRadioDarkTheme \
+    MDroidElevenBlackTheme \
+    MDroidElevenDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
