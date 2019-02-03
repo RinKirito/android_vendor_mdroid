@@ -183,6 +183,8 @@ PRODUCT_PACKAGES += \
     MDroidFMRadioDarkTheme \
     MDroidElevenBlackTheme \
     MDroidElevenDarkTheme \
+    MDroidRecorderBlackTheme \
+    MDroidRecorderDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
