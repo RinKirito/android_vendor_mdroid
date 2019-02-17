@@ -185,6 +185,8 @@ PRODUCT_PACKAGES += \
     MDroidElevenDarkTheme \
     MDroidRecorderBlackTheme \
     MDroidRecorderDarkTheme \
+    MDroidXiaomiPartsBlackTheme \
+    MDroidXiaomiPartsDarkTheme \
     MDroidBlackAccent \
     MDroidBlueAccent \
     MDroidBlueLightAccent \
