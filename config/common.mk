@@ -146,6 +146,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Exchange2
 
+# Charger font
+PRODUCT_PACKAGES += \
+    charger_font.png
+
 # Berry styles
 PRODUCT_PACKAGES += \
     MDroidSystemBlackTheme \
