@@ -207,6 +207,7 @@ PRODUCT_PACKAGES += \
     MDroidOrangeAccent \
     MDroidOrangeDeepAccent \
     MDroidPinkAccent \
+    MDroidBubblegumPinkAccent \
     MDroidPixelAccent \
     MDroidNetflixAccent \
     MDroidPurpleAccent \
